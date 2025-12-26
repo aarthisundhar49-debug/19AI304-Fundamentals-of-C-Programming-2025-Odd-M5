@@ -39,7 +39,39 @@
 ### Step 12: 
   Stop
 # Program:
+```
+#include <stdio.h>
+void swapByValue(int a, int b){
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+    printf("Inside swapByValue:\n");
+    printf("a = %d, b = %d\n", a, b);
+}
+void swapByReference(int *a, int *b){
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+    printf("Inside swapByReference:\n");
+    printf("a = %d, b = %d\n", *a, *b);
+}
+int main(){
+    int x = 10, y = 20;
+    printf("Before swapByValue:\n");
+    printf("x = %d, y = %d\n\n", x, y);
+    swapByValue(x, y);
+    printf("\nAfter swapByValue:\n");
+    printf("x = %d, y = %d\n\n", x, y);
+    swapByReference(&x, &y);
+    printf("\nAfter swapByReference:\n");
+    printf("x = %d, y = %d\n", x, y);
+    return 0;
+}
+```
 # Output:
+![alt text](<Screenshot 2025-12-26 063014.png>)
 # Result: 
   Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -77,7 +109,32 @@
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+int fibonacci(int n){
+    if (n == 0)
+        return 0;
+    else if (n == 1)
+        return 1;
+    else
+        return fibonacci(n - 1) + fibonacci(n - 2);
+}
+int main(){
+    int n, i;
+    scanf("%d", &n);
+    if (n <= 0){
+        printf("Please enter a positive integer.\n");
+        return 0;
+    }
+    printf("Fibonacci series:\n");
+    for (i = 0; i < n; i++){
+        printf("%d ", fibonacci(i));
+    }
+    return 0;
+}
+```
 # Output:
+![alt text](<Screenshot 2025-12-26 063350.png>)
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -119,7 +176,30 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 12:
   Stop
 # Program:
+```
+#include <stdio.h>
+void printSeries(int current, int upper){
+    if (current > upper)
+        return;
+    printf("%d ", current);
+    printSeries(current + 2, upper);
+}
+int main(){
+    int lower, upper, choice;
+    scanf("%d", &lower);
+    scanf("%d", &upper);
+    scanf("%d", &choice);
+    if (choice == 1 && lower % 2 != 0)
+        lower++;
+    else if (choice == 2 && lower % 2 == 0)
+        lower++;
+    printf("Resulting series:\n");
+    printSeries(lower, upper);
+    return 0;
+}
+```
 # Output:
+![alt text](<Screenshot 2025-12-26 063800.png>)
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -161,7 +241,31 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+    int n, i;
+    int *arr;
+    int sum = 0;
+    scanf("%d", &n);
+    arr = (int *)calloc(n, sizeof(int));
+    if (arr == NULL){
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+    for (i = 0; i < n; i++){
+        scanf("%d", &arr[i]);
+        sum += arr[i];
+    }
+    printf("Sum of the entered integers = %d\n", sum);
+    free(arr);
+    return 0;
+}
+```
+
 # Output:
+![alt text](<Screenshot 2025-12-26 064046.png>)
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -197,6 +301,28 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+void displayArray(int arr[], int n){
+    int i;
+    printf("Array elements are:\n");
+    for (i = 0; i < n; i++){
+        printf("%d ", arr[i]);
+    }
+}
+int main(){
+    int arr[100];
+    int n, i;
+    scanf("%d", &n);
+    printf("Enter %d integers:\n", n);
+    for (i = 0; i < n; i++){
+        scanf("%d", &arr[i]);
+    }
+    displayArray(arr, n);
+    return 0;
+}
+```
 # Output:
+![alt text](<Screenshot 2025-12-26 064333.png>)
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
